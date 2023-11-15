@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { useHistory, useLocation } from 'react-router-dom';
 import "./SearchForm.css";
+import UserContext from "../auth/UserContext"
 
 /** Search widget.
  *
@@ -14,15 +16,42 @@ import "./SearchForm.css";
  */
 
 function SearchForm({ searchFor }) {
+  const { categoriesList } = useContext(UserContext);
+  // console.debug("Categories List", categoriesList)
   console.debug("SearchForm", "searchFor=", typeof searchFor);
 
-  const [formData, setformData] = useState({});
+
+  const [formData, setformData] = useState({
+    // q:
+    // category
+  });
+  const history = useHistory();
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+    console.log("PATH", path)
+    const searchParams = location.search.substring(1);
+    if (searchParams) { 
+      const searchObj = JSON.parse('{"' + searchParams.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
+      setformData(searchObj)
+      console.log("URL QUERY OBJ", searchObj)
+      searchFor(searchObj);
+    }
+  },[])
 
   /** Tell parent to filter */
   function handleSubmit(evt) {
     // take care of accidentally trying to search for just spaces
     evt.preventDefault();
     console.debug("SEARCH DATA", formData)
+    for (let key in formData) {
+      console.log("FORMDATA", key, formData[key])
+    }
+
+    const params = new URLSearchParams(formData)
+    history.push({ pathname: location.pathname, search: params.toString() });
+
     searchFor({ ...formData});
     // searchFor(formData.trim() || undefined);
     // setformData(formData.trim());
@@ -35,6 +64,12 @@ function SearchForm({ searchFor }) {
       ...formData,
       [name]: value || undefined
     }));
+    // const params = new URLSearchParams({[name]: value });
+    
+    // urlParams.set('order', 'date');
+    // window.location.search = urlParams;
+    // params.set(name, value)
+    // history.push({ pathname: location.pathname, search: urlParams.toString() });      
   }
 
   return (
@@ -48,7 +83,7 @@ function SearchForm({ searchFor }) {
               type="text"
               value={formData.q}
               onChange={handleChange}
-          /><br></br><br></br>
+          />
           <label htmlFor="minUsersCount">Min Followers</label>
           <input
               className="form-control form-control-lg flex-grow-1"
@@ -66,13 +101,16 @@ function SearchForm({ searchFor }) {
               onChange={handleChange}
           />
           <label htmlFor="category">Category</label>
-          <input
-              className="form-control form-control-lg flex-grow-1"
+          <select
               name="category"
-              type="text"
+              id="category"
               value={formData.category}
               onChange={handleChange}
-          />
+          >
+            {categoriesList.map(c => 
+              <option key={c[0]} value={c[0]}> {c[1]} </option>
+              )}
+          </select>
           <button type="submit" className="btn btn-lg btn-primary">
             Submit
           </button>

@@ -13,6 +13,8 @@ import "./ProfileRatingCard.css";
 function RatingCard({ id, name, score, credibilityScore, review }) {
   // console.debug("RatingCard", score, name);
 
+  
+
   return (
       <div className="ProfileRatingCard card">
         <div className="card-body">
@@ -20,6 +22,8 @@ function RatingCard({ id, name, score, credibilityScore, review }) {
           <div><small>Rating: {score}</small></div>
           {credibilityScore && <div><small>Credibility: {credibilityScore}</small></div>}
           <p>{review}</p>
+          <button type="edit">Edit</button>
+          <button type="delete">Delete</button>
         </div>
       </div>
   );

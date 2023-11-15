@@ -1,7 +1,5 @@
-import React, { useState, useContext } from "react";
-import SearchForm from "../common/SearchForm";
-import InfluencedAPI from "../api/api";
-import LoadingSpinner from "../common/LoadingSpinner";
+import React, { useContext } from "react";
+// import LoadingSpinner from "../common/LoadingSpinner";
 import ProfileForm from "./ProfileForm";
 import ProfileRatingCardList from "./ProfileRatingCardList";
 import UserContext from "../auth/UserContext";
@@ -17,10 +15,11 @@ import UserContext from "../auth/UserContext";
  */
 
 function Profile() {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   return (
     <div className="Profile">
+      <h3>User Ratings</h3>
       <ProfileRatingCardList ratings={currentUser.ratings}/>
 
       <ProfileForm />

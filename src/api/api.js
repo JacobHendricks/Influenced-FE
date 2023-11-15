@@ -102,6 +102,7 @@ class InfluencedApi {
 
   /** Get influencer ratings by influencer id. */
   static async updateInfluencerScores(id) {
+    console.log("FINAL ID2", id)
     let res = await this.request(`influencers/updateScores/${id}`, {}, "patch");
     return res.scores;
   }

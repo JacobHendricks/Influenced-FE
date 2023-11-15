@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Homepage from "../homepage/Homepage";
-import RatingList from "../ratings/RatingList";
+// import RatingList from "../ratings/RatingList";
 import InfluencerDetail from "../influencers/InfluencerDetail";
 import LoginForm from "../auth/LoginForm";
 // import ProfileForm from "../profiles/ProfileForm";
@@ -11,6 +11,7 @@ import SignupForm from "../auth/SignupForm";
 import PrivateRoute from "./PrivateRoute";
 import InfluencerList from "../influencers/InfluencerList";
 import InfluencerCategory from "../categories/InfluencerCategory";
+import CategoryList from "../categories/CategoryList";
 
 /** Site-wide routes.
  *
@@ -47,8 +48,8 @@ function Routes({ login, signup }) {
             <InfluencerList />
           </Route>
 
-          <Route exact path="/jobs">
-            <RatingList />
+          <Route exact path="/categories">
+            <CategoryList />
           </Route>
 
           <PrivateRoute path="/influencers/ratings/:cid/new">
@@ -59,13 +60,13 @@ function Routes({ login, signup }) {
             <InfluencerDetail />
           </Route>
 
-          <Route exact path="/influencers/:id">
+          {/* <Route exact path="/influencers/:id">
             <InfluencerDetail />
-          </Route>
+          </Route> */}
 
-          <Route exact path="/influencers/category/:category">
+          {/* <Route exact path="/influencers/category/:category">
             <InfluencerCategory />
-          </Route>
+          </Route> */}
 
           <PrivateRoute path="/profile">
             <Profile />

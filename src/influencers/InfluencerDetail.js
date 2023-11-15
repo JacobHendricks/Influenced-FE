@@ -51,7 +51,8 @@ function InfluencerDetail() {
 
   }
 
-  async function updateInfluencerScores() {
+  async function updateInfluencerScores(id) {
+    console.log("FINAL ID", id)
     let scores = await InfluencedAPI.updateInfluencerScores(id)
     console.debug("UPDATED SCORES", scores)
     setRatingScore(scores.score)
@@ -81,7 +82,10 @@ function InfluencerDetail() {
           influencerCid={cid} 
           influencerData={{socialType, url, name, image, description, screenName, usersCount, score, credibilityScore}}
           getInfluencerId={getInfluencerId}
-          updateInfluencerScores={updateInfluencerScores} 
+          updateInfluencerScores={(id) => {
+            console.log("About to call update score", id)
+            updateInfluencerScores(id)
+          }} 
         />
 
         <br></br>

@@ -58,7 +58,7 @@ function RatingForm({ userId, influencerId, influencerCid, influencerData, getIn
     
     await addRating(id);
     await getInfluencerId();
-    updateInfluencerScores(id);
+    await updateInfluencerScores(id);
   }
 
   async function addRating(influencerId) {
@@ -99,6 +99,7 @@ function RatingForm({ userId, influencerId, influencerCid, influencerData, getIn
       setFormData(f => ({ ...f, influencerId: influencerResult.id }))
       return influencerResult;
     } catch (errors) {
+      console.log("Error adding infl", errors)
       setFormErrors(errors);
       return;
     }

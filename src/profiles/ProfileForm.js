@@ -89,7 +89,7 @@ function ProfileForm() {
 
   return (
       <div className="col-md-6 col-lg-4 offset-md-3 offset-lg-4">
-        <h3>Profile</h3>
+        <h3>Edit Profile</h3>
         <div className="card">
           <div className="card-body">
             <form>

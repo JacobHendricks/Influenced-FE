@@ -110,30 +110,17 @@ function App() {
     }
   }
 
-  function togglePop() {
-    setSeen(!seen);
-  };
+  // function togglePop() {
+  //   setSeen(!seen);
+  // };
 
-  
-
-  /** Checks if a job has been applied for. */
-  function hasAppliedToJob(id) {
-    return applicationIds.has(id);
-  }
-
-  /** Apply to a job: make API call and update set of application IDs. */
-  function applyToJob(id) {
-    if (hasAppliedToJob(id)) return;
-    InfluencedAPI.applyToJob(currentUser.username, id);
-    setApplicationIds(new Set([...applicationIds, id]));
-  }
 
   if (!infoLoaded) return <LoadingSpinner />;
 
   return (
       <BrowserRouter>
         <UserContext.Provider
-            value={{ currentUser, setCurrentUser, hasAppliedToJob, applyToJob }}>
+            value={{ currentUser, setCurrentUser, categoriesList }}>
           <div className="App">
             <Navigation logout={logout} />
             <Routes login={login} signup={signup} />
@@ -142,5 +129,71 @@ function App() {
       </BrowserRouter>
   );
 }
+
+
+const categoriesList = [
+  ['', 'All'], 
+  ['celebrity', 'Celebrity'], 
+  ['actor', 'Actor'], 
+  ['business', 'Business'], 
+  ['influencer', 'Influencer'], 
+  ['government', 'Government'], 
+  ['other', 'Other'],
+  ['personal', 'Personal'],
+  ['public', 'Public'],
+  ['accessories-and-jewellery', 'Accessories & Jewelry'],
+  ['adult-content', 'Adult content'],
+  ['alcohol-alcohol', 'Alcohol'],
+  ['animals', 'Animals'],
+  ['architecture-and-urban-design', 'Architecture & Urban Design'],
+  ['art-artists', 'Art'],
+  ['beauty', 'Beauty'],
+  ['business-and-careers', 'Business & Careers'],
+  ['cars-and-motorbikes', 'Cars & Motorcycles'],
+  ['cinema-and-Actors-actresses', 'Cinema & Actors/actresses'],
+  ['clothing-and-outfits', 'Clothing & Outfits'],
+  ['comics-and-sketches', 'Comics & sketches'],
+  ['computers-and-gadgets','Computers & Gadgets'],
+  ['crypto', 'Crypto'],
+  ['diy-and-design', 'DIY & Design'],
+  ['education-education', 'Education'],
+  ['extreme-sports-and-outdoor-activity', 'Extreme Sports & Outdoor activity'],
+  ['family', 'Family'],
+  ['fashion-fashion', 'Fashion'],
+  ['finance-and-economics', 'Finance & Economics'],
+  ['fitness-and-gym', 'Fitness & Gym'],
+  ['food-and-cooking', 'Food & Cooking'],
+  ['gaming','Gaming'],
+  ['health-and-medicine', 'Health & Medicine'],
+  ['humor-and-fun-and-happiness', 'Humor & Fun'],
+  ['kids-and-toys','Kids & Toys'],
+  ['lifestyle', 'Lifestyle'],
+  ['literature-and-journalism','Literature & Journalism'],
+  ['luxury','Luxury'],
+  ['machinery-and-technologies','Machinery & Technologies'],
+  ['management-and-marketing','Management & Marketing'],
+  ['mobile-related','Mobile related'],
+  ['modeling','Modeling'],
+  ['music-music','Music'],
+  ['nft','NFT'],
+  ['nature-and-landscapes','Nature & landscapes'],
+  ['photography','Photography'],
+  ['politics-politics', 'Politics'],
+  ['racing-sports','Racing'],
+  ['science', 'Science'],
+  ['shopping-and-retail','Shopping & Retail'],
+  ['shows', 'Shows'],
+  ['sports','Sports'],
+  ['sports-with-a-ball','Sports'],
+  ['sweets-and-bakery','Baking & Sweets'],
+  ['tobacco-and-smoking','Tobacco & Smoking'],
+  ['trainers-and-coaches','Trainers & Coaches'],
+  ['travel-travel','Travel'],
+  ['water-sports','Water sports'],
+  ['winter-sports','Winter sports']
+]
+
+
+
 
 export default App;
