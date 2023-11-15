@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import InfluencedAPI from "../api/api";
 import RatingCardList from "../ratings/RatingCardList";
-import LoadingSpinner from "../common/LoadingSpinner";
+// import LoadingSpinner from "../common/LoadingSpinner";
 import UserContext from "../auth/UserContext"
 import RatingForm from "../ratings/RatingForm"
 

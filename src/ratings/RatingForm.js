@@ -64,7 +64,7 @@ function RatingForm({ userId, influencerId, influencerCid, influencerData, getIn
   async function addRating(influencerId) {
     try {
       console.debug("Add Rating", influencerId);
-      let result = await InfluencedAPI.addRating({ ...formData, influencerId});
+      await InfluencedAPI.addRating({ ...formData, influencerId});
     
       setSaveConfirmed(true);
       // history.push("/influencers");

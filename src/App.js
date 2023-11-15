@@ -29,10 +29,8 @@ export const TOKEN_STORAGE_ID = "influenced-token";
 
 function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
-  const [applicationIds, setApplicationIds] = useState(new Set([]));
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
-  const [seen, setSeen] = useState(false)
 
   console.debug(
       "App",
@@ -56,7 +54,6 @@ function App() {
           InfluencedAPI.token = token;
           let currentUser = await InfluencedAPI.getCurrentUser(username);
           setCurrentUser(currentUser);
-          setApplicationIds(new Set(currentUser.applications));
         } catch (err) {
           console.error("App loadUserInfo: problem loading", err);
           setCurrentUser(null);

@@ -10,7 +10,7 @@ import RatingForm from "../ratings/RatingForm";
 import SignupForm from "../auth/SignupForm";
 import PrivateRoute from "./PrivateRoute";
 import InfluencerList from "../influencers/InfluencerList";
-import InfluencerCategory from "../categories/InfluencerCategory";
+// import InfluencerCategory from "../categories/InfluencerCategory";
 import CategoryList from "../categories/CategoryList";
 
 /** Site-wide routes.
