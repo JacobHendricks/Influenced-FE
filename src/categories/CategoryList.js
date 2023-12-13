@@ -15,10 +15,10 @@ import UserContext from "../auth/UserContext"
 
 function CategoryList() {
   const { categoriesList } = useContext(UserContext);
-  console.debug("CategoryList", categoriesList);
+  // console.debug("CategoryList", categoriesList);
 
   return (
-      <div className="CategoryList col-md-8 offset-md-2">
+      <div className="CategoryList col-xl-4 offset-xl-4">
         {categoriesList.map(c => (
             <CategoryCard
                 key={c[0]}

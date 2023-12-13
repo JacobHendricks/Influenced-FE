@@ -1,16 +1,13 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Homepage from "../homepage/Homepage";
-// import RatingList from "../ratings/RatingList";
 import InfluencerDetail from "../influencers/InfluencerDetail";
 import LoginForm from "../auth/LoginForm";
-// import ProfileForm from "../profiles/ProfileForm";
 import Profile from "../profiles/Profile";
 import RatingForm from "../ratings/RatingForm";
 import SignupForm from "../auth/SignupForm";
 import PrivateRoute from "./PrivateRoute";
 import InfluencerList from "../influencers/InfluencerList";
-// import InfluencerCategory from "../categories/InfluencerCategory";
 import CategoryList from "../categories/CategoryList";
 
 /** Site-wide routes.
@@ -60,19 +57,9 @@ function Routes({ login, signup }) {
             <InfluencerDetail />
           </Route>
 
-          {/* <Route exact path="/influencers/:id">
-            <InfluencerDetail />
-          </Route> */}
-
-          {/* <Route exact path="/influencers/category/:category">
-            <InfluencerCategory />
-          </Route> */}
-
           <PrivateRoute path="/profile">
             <Profile />
           </PrivateRoute>
-
-
 
           <Redirect to="/" />
         </Switch>

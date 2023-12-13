@@ -16,13 +16,13 @@ import UserContext from "../auth/UserContext";
 
 function Profile() {
   const { currentUser } = useContext(UserContext);
+  console.log("Current User", currentUser)
 
   return (
     <div className="Profile">
-      <h3>User Ratings</h3>
-      <ProfileRatingCardList ratings={currentUser.ratings}/>
-
       <ProfileForm />
+      <br></br>
+      <ProfileRatingCardList ratings={currentUser.ratings}/>
     </div>
   )
 

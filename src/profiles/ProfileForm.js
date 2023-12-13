@@ -88,7 +88,7 @@ function ProfileForm() {
   }
 
   return (
-      <div className="col-md-6 col-lg-4 offset-md-3 offset-lg-4">
+      <div className="col-xl-4 offset-xl-4">
         <h3>Edit Profile</h3>
         <div className="card">
           <div className="card-body">
@@ -132,7 +132,7 @@ function ProfileForm() {
                   : null}
 
               <button
-                  className="btn btn-primary btn-block mt-4"
+                  className="btn btn-primary mt-4"
                   onClick={handleSubmit}
               >
                 Save Changes

@@ -139,7 +139,7 @@ const categoriesList = [
   ['personal', 'Personal'],
   ['public', 'Public'],
   ['accessories-and-jewellery', 'Accessories & Jewelry'],
-  ['adult-content', 'Adult content'],
+  // ['adult-content', 'Adult content'],
   ['alcohol-alcohol', 'Alcohol'],
   ['animals', 'Animals'],
   ['architecture-and-urban-design', 'Architecture & Urban Design'],

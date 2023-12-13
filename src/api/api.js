@@ -63,6 +63,7 @@ class InfluencedApi {
   /** Search influencers (filtered by name if not undefined) */
 
   static async searchInfluencers(data) {
+    console.log(data, "SEARCH DATA")
     let res = await this.request("influencers/search", data);
     return res.influencers;
   }
@@ -93,11 +94,10 @@ class InfluencedApi {
     await this.request(`ratings`, data, "post");
   }
 
-  /** Get list of jobs (filtered by title if not undefined) */
+  /** delete a rating */
 
-  static async getJobs(title) {
-    let res = await this.request("jobs", { title });
-    return res.jobs;
+  static async deleteRating(userId, influencerId) {
+    await this.request(`ratings/user/${userId}/influencer/${influencerId}`, {}, "delete");
   }
 
   /** Get influencer ratings by influencer id. */

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Alert from "../common/Alert";
 import InfluencedAPI from "../api/api";
+import Star from "../common/Star";
 
 // eslint-disable-next-line
 import useTimedMessage from "../hooks/useTimedMessage";
@@ -108,56 +109,59 @@ function RatingForm({ userId, influencerId, influencerCid, influencerData, getIn
 
 
   return (
-      <div className="col-md-6 col-lg-8 offset-md-3 offset-lg-2">
-        <h3>Rating</h3>
-        <div className="card">
-          <div className="card-body">
-            <form>
-              <div className="form-group">
-                <label>Rating</label>
-                <input
-                    name="score"
-                    className="form-control"
-                    value={formData.score}
-                    onChange={handleChange}
-                />
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">Enter a Rating</h5>
+          <form>
+            <div className="row">
+              <div className="col-3">
+                <div className="form-group">
+                  <label>Rating</label>
+                    <Star 
+                      name="score"
+                      handleChange={handleChange}
+                  />
+                </div>
               </div>
-              <div className="form-group">
-                <label>Credibility</label>
-                <input
-                    name="credibilityScore"
-                    className="form-control"
-                    value={formData.credibilityScore}
-                    onChange={handleChange}
-                />
+              <div className="col">
+                <div className="form-group">
+                  <label>Credibility</label>
+                    <Star 
+                      name="credibilityScore"
+                      handleChange={handleChange}
+                  />
+                </div>
               </div>
-              <div className="form-group">
-                <label>Review</label>
-                <input
-                    name="review"
-                    className="form-control"
-                    value={formData.review}
-                    onChange={handleChange}
-                />
-              </div>
-
-              {formErrors.length
-                  ? <Alert type="danger" messages={formErrors} />
-                  : null}
-
-              {saveConfirmed
-                  ?
-                  <Alert type="success" messages={["Rating Created"]} />
-                  : null}
-
-              <button
-                  className="btn btn-primary btn-block mt-4"
-                  onClick={handleSubmit}
+            </div>
+            
+            
+            <div className="form-group">
+              <label>Review</label>
+              <textarea
+                  name="review"
+                  className="form-control"
+                  value={formData.review}
+                  onChange={handleChange}
               >
-                Submit
-              </button>
-            </form>
-          </div>
+              </textarea>
+            </div>
+
+            {formErrors.length
+                ? <Alert type="danger" messages={formErrors} />
+                : null}
+
+            {saveConfirmed
+                ?
+                <Alert type="success" messages={["Rating Created"]} />
+                : null}
+
+            <button
+                className="btn btn-primary"
+                onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </div>
   );

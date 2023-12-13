@@ -2,16 +2,48 @@
   max-height: 250px;
   margin-bottom: 1rem;
   color: inherit;
-  border-radius: 0;
+  border-radius: 5px;
   border: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .InfluencerCard img {
-  width: 50px;
+  width: 125px;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+  /* border: 3px solid rgb(216, 216, 216); */
 }
 
 .InfluencerCard:hover { /* <Card /> that is also <Link /> */
   text-decoration: none;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.score {
+  padding-left: 0.7rem;
+  font-size: 110%;
+}
+
+.rating {
+  margin-left: 0rem;
+  font-weight: 600;
+}
+
+.star {
+  color: #ffc107;
+  /* color: rgb(231, 198, 17); */
+}
+
+.credibility {
+  font-size: 90%;
+  padding-left: 0rem;
+}
+
+/* #rating-span {
+  font-size: 90%;
+} */
+
+#no-rating-span {
+  /* font-size: 90%; */
+  color: darkgray;
 }

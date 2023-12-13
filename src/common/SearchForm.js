@@ -36,7 +36,7 @@ function SearchForm({ searchFor }) {
       const searchObj = JSON.parse('{"' + searchParams.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
       setformData(searchObj)
       console.log("URL QUERY OBJ", searchObj)
-      searchFor(searchObj);
+      //searchFor(searchObj);
     }
   },[])
 
@@ -74,46 +74,71 @@ function SearchForm({ searchFor }) {
 
   return (
       <div className="SearchForm mb-4">
-        <form className="form-inline" onSubmit={handleSubmit}>
-          <label htmlFor="q">Influencer Name / @ </label>
-          <input
-              className="form-control form-control-lg flex-grow-1"
-              name="q"
-              placeholder="Enter search term.."
-              type="text"
-              value={formData.q}
-              onChange={handleChange}
-          />
-          <label htmlFor="minUsersCount">Min Followers</label>
-          <input
-              className="form-control form-control-lg flex-grow-1"
-              name="minUsersCount"
-              type="text"
-              value={formData.minUsersCount}
-              onChange={handleChange}
-          />
-          <label htmlFor="maxUsersCount">Max Followers</label>
-          <input
-              className="form-control form-control-lg flex-grow-1"
-              name="maxUsersCount"
-              type="text"
-              value={formData.maxUsersCount}
-              onChange={handleChange}
-          />
-          <label htmlFor="category">Category</label>
-          <select
-              name="category"
-              id="category"
-              value={formData.category}
-              onChange={handleChange}
-          >
-            {categoriesList.map(c => 
-              <option key={c[0]} value={c[0]}> {c[1]} </option>
-              )}
-          </select>
-          <button type="submit" className="btn btn-lg btn-primary">
-            Submit
-          </button>
+        <form onSubmit={handleSubmit}>
+
+          <div className="form-group row justify-content-center">
+            <label htmlFor="q" className="col-md-3 col-form-label" >Influencer Name / @ </label>
+            <div className="col-md-3">
+              <input
+                  className="form-control flex-grow-1"
+                  name="q"
+                  placeholder="Enter search term.."
+                  type="text"
+                  value={formData.q}
+                  onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="form-group row row justify-content-center">
+            <label htmlFor="category" className="col-md-3 col-form-label">Category</label>
+            <div className="col-md-3">
+              <select
+                  className="form-control flex-grow-1"
+                  name="category"
+                  id="category"
+                  value={formData.category}
+                  onChange={handleChange}
+              >
+                {categoriesList.map(c => 
+                  <option key={c[0]} value={c[0]}> {c[1]} </option>
+                  )}
+              </select>
+            </div>
+          </div>
+
+          <div className="form-group row row justify-content-center">
+            <label htmlFor="minUsersCount" className="col-md-3 col-form-label">Min Followers</label>
+            <div className="col-md-3">
+              <input
+                  className="form-control flex-grow-1"
+                  name="minUsersCount"
+                  type="text"
+                  value={formData.minUsersCount}
+                  onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="form-group row row justify-content-center">
+            <label htmlFor="maxUsersCount" className="col-md-3 col-form-label">Max Followers</label>
+            <div className="col-md-3">
+              <input
+                  className="form-control flex-grow-1"
+                  name="maxUsersCount"
+                  type="text"
+                  value={formData.maxUsersCount}
+                  onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="form-group row row justify-content-center">
+            <button type="submit" className="btn btn-primary">
+              Search
+            </button>
+          </div>
+
         </form>
       </div>
   );

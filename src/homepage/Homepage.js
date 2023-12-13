@@ -21,10 +21,15 @@ function Homepage() {
         <div className="container text-center">
           <h1 className="mb-4 font-weight-bold">Influenced</h1>
           <p className="lead">All the influencers in one convenient place.</p>
+          <div>Browse influencers by Category</div>
+          <div>Search by Name and filter by number of followers</div>
+          <div>Rate your favorite (and least favorite) influencers! </div>
+          <br></br>
+          <br></br>
           {currentUser
-              ? <h2>
+              ? <h5>
                 Welcome Back, {currentUser.firstName || currentUser.username}!
-              </h2>
+              </h5>
               : (
                   <p>
                     <Link className="btn btn-primary font-weight-bold mr-3"

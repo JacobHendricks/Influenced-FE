@@ -16,10 +16,12 @@ function RatingCard({ reviewerName, score, credibilityScore, review }) {
   return (
       <div className="RatingCard card">
         <div className="card-body">
-          <h6 className="card-title">{reviewerName}</h6>
-          <div><small>Rating: {score}</small></div>
-          {credibilityScore && <div><small>Credibility: {credibilityScore}</small></div>}
-          <p>{review}</p>
+          <div className="rating-card-title">{reviewerName}</div>
+          <div className="row ratings-row">
+            <div className="col-3">Rating: {score} <span className="star">&#9733;</span></div>
+            {credibilityScore && <div className="col">Credibility: {credibilityScore} <span className="star">&#9733;</span></div>}
+          </div>
+          <div>{review}</div>
         </div>
       </div>
   );

@@ -1,3 +1,33 @@
 .InfluencerDetail img {
-  width: 200px;
+  width: 230px;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+}
+
+.scoreR {
+  padding-left: 3rem;
+  font-size: 150%;
+}
+
+.ratings {
+  /* margin-left: 0rem; */
+  font-weight: 600;
+}
+
+.star {
+  color: #ffc107;
+  /* color: rgb(231, 198, 17); */
+}
+
+.credibilityR {
+  font-size: 130%;
+  padding-left: 0rem;
+}
+
+#ratings-span {
+  font-size: 80%;
+}
+
+.socialType {
+  font-size: 60%;
 }

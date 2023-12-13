@@ -1,6 +1,7 @@
 .Homepage {
   /* put around the vertical center of page */
-  height: calc(100vh - 150px);
+  margin: 200px auto 0 auto;
+  /* height: calc(100vh - 150px); */
   display: flex;
   align-items: center;
 }

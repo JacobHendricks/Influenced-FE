@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 import SearchForm from "../common/SearchForm";
 import InfluencedAPI from "../api/api";
 import InfluencerCard from "./InfluencerCard";
 import LoadingSpinner from "../common/LoadingSpinner";
+// import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 /** Show page with list of influencers.
  *
@@ -15,35 +17,35 @@ import LoadingSpinner from "../common/LoadingSpinner";
  */
 
 function InfluencerList() {
-  console.debug("InfluencerList");
-  
+  // console.debug("InfluencerList");
+  const location = useLocation()
   const [influencers, setInfluencers] = useState(null);
+  let categoryObj = {};
+  const searchParams = location.search.substring(1);
+    if (searchParams) { 
+      categoryObj = JSON.parse('{"' + searchParams.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
+    }
+
+  const [searchKey, setSearchKey] = useState(categoryObj);
 
   useEffect(function getInfluencersOnMount() {
-    console.debug("InfluencerList useEffect getInfluencersOnMount");
-    search();
-  }, []);
+    console.debug("InfluencerList useEffect getInfluencersOnMount", categoryObj);
+    search(searchKey);
+  }, [searchKey]);
 
   /** Triggered by search form submit; reloads influencers. */
   async function search(params) {
+    setInfluencers(null);
     let influencers = await InfluencedAPI.searchInfluencers(params);
     console.debug("INFLUENCERS***", influencers)
     setInfluencers(influencers);
   }
 
-  // /** Triggered by search form submit; reloads influencers. */
-  // async function search2(category) {
-  //   console.debug("Search2", category)
-  //   let influencers = await InfluencedAPI.getInfluencersByCategory(category);
-  //   console.debug("INFLUENCERS***", influencers)
-  //   setInfluencers(influencers);
-  // }
-
   if (!influencers) return <LoadingSpinner />;
 
   return (
-      <div className="InfluencerList col-md-8 offset-md-2">
-        <SearchForm searchFor={search} />
+      <div className="InfluencerList col-xl-6 offset-xl-3">
+        <SearchForm searchFor={(data) => setSearchKey(data)} />
         {influencers.length
             ? (
                 <div className="InfluencerList-list">

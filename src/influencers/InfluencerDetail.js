@@ -5,8 +5,6 @@ import RatingCardList from "../ratings/RatingCardList";
 // import LoadingSpinner from "../common/LoadingSpinner";
 import UserContext from "../auth/UserContext"
 import RatingForm from "../ratings/RatingForm"
-
-
 import "./InfluencerDetail.css";
 
  /** Influencer Detail page.
@@ -64,16 +62,38 @@ function InfluencerDetail() {
   // if (!influencer) return <LoadingSpinner />;
 
   return (
-      <div className="InfluencerDetail col-md-8 offset-md-2">
-        <h4>{screenName}</h4>
-        <img src={image} alt={name} className="float-right ml-5" />
-        <p>{socialType}</p>
-        <p><b>{name}</b></p>
-        <p>{description}</p>
-        <p>Followers: {formatNum(usersCount)}</p>
-        <p>{url}</p>
-        <div>Rating: {ratingScore ? ratingScore : "Be first to enter a rating"}</div>
-        <div>Credibility: {ratingCredibilityScore ? ratingCredibilityScore: "Be first to enter a rating"}</div>
+      <div className="InfluencerDetail col-xl-6 offset-xl-3">
+        <div className="d-flex justify-content-start">
+          <div className="d-flex flex-row">
+            <div>
+              <img src={image} alt={name} className="" />
+            </div>
+            <div className="pl-4">
+              <h4 className="card-title">@{screenName}</h4>
+              {/* <span className="socialType">({socialType})</span> */}
+              <p><b>{name}</b></p>
+              <p>Followers: {formatNum(usersCount)}</p>
+              <p>{description}</p>
+              <p>{url}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="ratings row mt-2">
+            <div className="scoreR col-3"> 
+               {/* Rating: {score ? (`${score} / 5`(<span className="star">&#9733;</span>)) : "No ratings"}  */}
+               {ratingScore? <span id="ratings-span">Rating: </span> : null}
+               {ratingScore ? `${ratingScore} / 5 ` : "No ratings"} 
+               {ratingScore ? <span className="star">&#9733;</span> : null}
+            </div>
+            <div className="credibilityR col align-self-center">
+              {ratingCredibilityScore ? <span id="ratings-span">Credibility: </span> : null}
+              {ratingCredibilityScore ? `${ratingCredibilityScore} / 5 ` : "Be first to enter a rating"} 
+              {ratingCredibilityScore ? <span className="star">&#9733;</span> : null}
+            </div>
+        </div>
+        {/* <div>Rating: {ratingScore ? ratingScore : "Be first to enter a rating"}</div>
+        <div>Credibility: {ratingCredibilityScore ? ratingCredibilityScore: "Be first to enter a rating"}</div> */}
         <br></br>
         <RatingForm 
           key={id}
