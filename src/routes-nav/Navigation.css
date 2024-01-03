@@ -7,3 +7,8 @@
   font-weight: bold;
   color: black;
 }
+
+.navbar-brand {
+  font-size: x-large;
+  /* font-weight: bold; */
+}

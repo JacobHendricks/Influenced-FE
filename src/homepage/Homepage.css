@@ -1,7 +1,22 @@
 .Homepage {
   /* put around the vertical center of page */
-  margin: 200px auto 0 auto;
+  /* margin: 100px auto 0 auto; */
   /* height: calc(100vh - 150px); */
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
+}
+
+#img-influencers {
+  width: 600px;
+}
+/* #img-cat {
+} */
+
+.img-sect {
+  width: 300px;
+}
+
+.text {
+  font-size: larger;
+  font-weight: bold;
 }

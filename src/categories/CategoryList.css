@@ -1,0 +1,18 @@
+.img-desc {
+  width: 150px;
+}
+
+.title {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.desc {
+  font-size: large;
+}
+
+hr {
+  height:2px;
+  border-width:0;
+  background-color: darkgray;
+}

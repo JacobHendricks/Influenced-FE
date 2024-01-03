@@ -38,7 +38,7 @@ function SignupForm({ signup }) {
     evt.preventDefault();
     let result = await signup(formData);
     if (result.success) {
-      history.push("/influencers");
+      history.push("/");
     } else {
       setFormErrors(result.errors);
     }

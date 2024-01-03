@@ -60,6 +60,14 @@ function RatingForm({ userId, influencerId, influencerCid, influencerData, getIn
     await addRating(id);
     await getInfluencerId();
     await updateInfluencerScores(id);
+
+    // Dont do this
+    // location.reload();
+
+    // Refresh the current user
+    // Attache the token and that it
+    // let currentUser = await InfluencedAPI.getCurrentUser(username);
+    // setCurrentUser(currentUser);
   }
 
   async function addRating(influencerId) {

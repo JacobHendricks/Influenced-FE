@@ -6,6 +6,7 @@ import RatingCardList from "../ratings/RatingCardList";
 import UserContext from "../auth/UserContext"
 import RatingForm from "../ratings/RatingForm"
 import "./InfluencerDetail.css";
+import imgReview from "../images/influencerReview.jpg";
 
  /** Influencer Detail page.
  *
@@ -63,10 +64,30 @@ function InfluencerDetail() {
 
   return (
       <div className="InfluencerDetail col-xl-6 offset-xl-3">
+        <div className="container">
+          <div className="row">
+            <div className="col-2">
+              <img className="img-description" id="img-review" src={imgReview} alt="influencer review" />
+            </div>
+            <div className="col title d-flex align-items-center">Rate and Review Influencers</div>
+          </div>
+          <div className="row mt-2">
+            <div className="col description d-flex align-items-center">
+              <div>
+                <p>Ratings and reviews should be based on what users like and/or dislike about an individual influencer or channel and allow for a credibility score to be entered so other potential viewers and/or collaborators know who they can trust when reviewing their content.</p>
+                <div><em>Ratings/Reviews can be deleted, however Influenced users are limited to write one review/rating per Influencer</em></div>
+              </div>
+            </div>
+          </div>
+          <hr></hr>
+        </div>
+        <br></br>
+        <br></br>
+
         <div className="d-flex justify-content-start">
           <div className="d-flex flex-row">
             <div>
-              <img src={image} alt={name} className="" />
+              <img src={image} alt={name} className="img-infl" />
             </div>
             <div className="pl-4">
               <h4 className="card-title">@{screenName}</h4>
